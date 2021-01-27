@@ -19,7 +19,7 @@ blocks:
     statements:
      - create-keyspace: |
         create keyspace if not exists TEMPLATE(keyspace,dynaman_ks)
-        WITH replication = {'class': 'NetworkTopologyStrategy', 'DC1': '<<rf:3>>'};
+        WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '<<rf:3>>'};
      - create-table: |
         create table if not exists TEMPLATE(keyspace,dynaman_ks).TEMPLATE(table,user_state) (
          session uuid,
